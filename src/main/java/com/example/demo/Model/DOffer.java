@@ -5,11 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class KRate {
+public class DOffer {
     @Id
     @GeneratedValue
-    private Long rateId;
-    private String rateNumber;
-    private String rateReason;
+    private Long offerId;
+    private String  resturant;
+    private String offer;
 
 }
