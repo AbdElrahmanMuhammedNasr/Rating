@@ -1,5 +1,6 @@
 package com.example.demo.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,8 +9,11 @@ import javax.persistence.Id;
 public class KRate {
     @Id
     @GeneratedValue
+    @Column(name = "ID")
     private Long rateId;
+    @Column(name = "Rate")
     private String rateNumber;
+    @Column(name = "Reason")
     private String rateReason;
 
 }
