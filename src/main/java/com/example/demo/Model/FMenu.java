@@ -1,20 +1,31 @@
 package com.example.demo.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Data
 public class FMenu {
     @Id
     @GeneratedValue
     @Column(name = "ID")
     private Long foodId;
+
     @Column(name = "Name")
     private String foodName;
+
     @Column(name = "Price")
-    private short foodPrice;
+    private Long foodPrice;
+
     @Column(name = "Datail")
     private String foodDetails;
+
+    @OneToMany(mappedBy = "fMenu")
+    private List<KRate> rates;
+
+
+    @ManyToOne
+    private AResturant resturant;
 }

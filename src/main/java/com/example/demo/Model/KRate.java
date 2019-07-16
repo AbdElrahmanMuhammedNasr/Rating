@@ -1,19 +1,24 @@
 package com.example.demo.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.Data;
+
+import javax.persistence.*;
 
 @Entity
+@Data
 public class KRate {
     @Id
     @GeneratedValue
     @Column(name = "ID")
     private Long rateId;
+
     @Column(name = "Rate")
-    private String rateNumber;
+    private Long rateNumber;
+
     @Column(name = "Reason")
     private String rateReason;
+
+    @ManyToOne
+    private FMenu fMenu;
 
 }
