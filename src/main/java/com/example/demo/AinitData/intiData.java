@@ -1,9 +1,6 @@
 package com.example.demo.AinitData;
 
-import com.example.demo.Model.AResturant;
-import com.example.demo.Model.DOffer;
-import com.example.demo.Model.FMenu;
-import com.example.demo.Model.KRate;
+import com.example.demo.Model.*;
 import com.example.demo.KReposotiry.AresturantRepo;
 import com.example.demo.KReposotiry.DOfferRepo;
 import com.example.demo.KReposotiry.FmenuRepo;
@@ -30,7 +27,7 @@ public class intiData implements CommandLineRunner {
             AResturant a1 = new AResturant();
             a1.setResturantImage(new  byte[10]);
             a1.setResturantName("ElGa3an");
-            a1.setResturentAddress("Tanat - ElBahr street");
+            a1.setResturentAddress(new BAddress("Tanat","ELBahr","near collage"));
             a1.setResturantDetails("Omer Saad");
 
 

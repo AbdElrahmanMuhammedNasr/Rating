@@ -23,7 +23,7 @@ public class FMenu {
     @Column(name = "Datail")
     private String foodDetails;
 
-    @OneToMany(mappedBy = "fMenu")
+    @OneToMany(mappedBy = "fMenu" ,cascade = CascadeType.ALL)
     @JsonIgnore
     private List<KRate> rates;
 

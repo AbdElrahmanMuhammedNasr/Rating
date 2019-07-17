@@ -20,7 +20,7 @@ public class KRate {
     private String rateReason;
 
 
-    @ManyToOne
+    @ManyToOne // EAGER
     @JsonIgnore
     private FMenu fMenu;
 

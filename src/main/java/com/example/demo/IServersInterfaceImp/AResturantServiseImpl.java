@@ -16,6 +16,13 @@ public class AResturantServiseImpl implements AResturantServise {
 
     @Override
     public List<AResturant> findAllReaturant() {
+
         return aresturantRepo.findAll();
+       // return aresturantRepo.findAllAndis__delete(); //own function for softdelete
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        aresturantRepo.deleteById(id);
     }
 }

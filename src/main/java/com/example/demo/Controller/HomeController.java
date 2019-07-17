@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -21,6 +22,16 @@ public class HomeController {
 
     @GetMapping(value = {"/"})
     public List<AResturant> getResurant(){
+
+
+/*       System.out.printf("First ", Arrays.asList( aResturantServise.findAllReaturant()) );
+
+        System.out.printf("Second ",Arrays.asList( aResturantServise.findAllReaturant()));
+
+        System.out.printf("----------------------------------------------------------------");
+        */
+
+
         return aResturantServise.findAllReaturant();
     }
 
@@ -28,4 +39,14 @@ public class HomeController {
     public List<DOffer> getOffer(){
         return dofferServise.findAllOffer();
     }
+
+    @GetMapping(value = "/delete")
+    public  String delete(){
+        aResturantServise.deleteById(1l);
+        return "OK";
+    }
+
+
+
 }
+

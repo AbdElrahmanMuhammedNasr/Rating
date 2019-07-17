@@ -7,4 +7,6 @@ import java.util.List;
 public interface AResturantServise {
 
     List<AResturant> findAllReaturant();
+
+    void deleteById(Long id);
 }

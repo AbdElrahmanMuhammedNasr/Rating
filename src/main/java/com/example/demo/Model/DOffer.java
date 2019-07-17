@@ -16,7 +16,7 @@ public class DOffer {
     @Column(name = "Offer")
     private String offer;
 
-    @ManyToOne
+    @ManyToOne // it is eager by defult   //fetch = FetchType.LAZY display only offer
     @JsonIgnore
     private AResturant  resturant;
 

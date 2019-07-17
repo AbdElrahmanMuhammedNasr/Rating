@@ -2,12 +2,16 @@ package com.example.demo.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Entity
+@Cacheable
+//@SQLDelete(sql = "update AResturant set is_delete=true where id=?") // soft delete
+
 public class AResturant {
     @Id
     @GeneratedValue
@@ -21,8 +25,8 @@ public class AResturant {
     @Column(name = "Name")
     private String resturantName;
 
-    @Column(name = "Address")
-    private String resturentAddress;
+    @Embedded
+    private BAddress resturentAddress;
 
     @Column(name = "Details")
     private String resturantDetails;
@@ -35,4 +39,7 @@ public class AResturant {
     @OneToMany(mappedBy = "resturant" ,cascade = CascadeType.ALL /*, fetch = FetchType.EAGER*/)
     @JsonIgnore
     private List<DOffer> offers;
+
+
+    private boolean is_delete;
 }
