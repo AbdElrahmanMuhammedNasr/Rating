@@ -1,5 +1,6 @@
 package com.example.demo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,7 +19,9 @@ public class KRate {
     @Column(name = "Reason")
     private String rateReason;
 
+
     @ManyToOne
+    @JsonIgnore
     private FMenu fMenu;
 
 }

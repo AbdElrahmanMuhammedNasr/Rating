@@ -1,5 +1,6 @@
 package com.example.demo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -26,9 +27,12 @@ public class AResturant {
     @Column(name = "Details")
     private String resturantDetails;
 
-    @OneToMany(mappedBy = "resturant" ,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "resturant" ,cascade = CascadeType.ALL /*,fetch = FetchType.EAGER*/)
+    @JsonIgnore
     private List<FMenu>  restaurantFmenu;
 
 
-//    private List<DOffer> offers;
+    @OneToMany(mappedBy = "resturant" ,cascade = CascadeType.ALL /*, fetch = FetchType.EAGER*/)
+    @JsonIgnore
+    private List<DOffer> offers;
 }

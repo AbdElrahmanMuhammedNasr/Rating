@@ -1,11 +1,13 @@
 package com.example.demo.AinitData;
 
 import com.example.demo.Model.AResturant;
+import com.example.demo.Model.DOffer;
 import com.example.demo.Model.FMenu;
 import com.example.demo.Model.KRate;
-import com.example.demo.ZReposotiry.AresturantRepo;
-import com.example.demo.ZReposotiry.FmenuRepo;
-import com.example.demo.ZReposotiry.KRateRepo;
+import com.example.demo.KReposotiry.AresturantRepo;
+import com.example.demo.KReposotiry.DOfferRepo;
+import com.example.demo.KReposotiry.FmenuRepo;
+import com.example.demo.KReposotiry.KRateRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,6 +20,8 @@ public class intiData implements CommandLineRunner {
     private KRateRepo kRateRepo;
     @Autowired
     private AresturantRepo aresturantRepo;
+    @Autowired
+    private DOfferRepo dOfferRepo;
 
     @Override
     public void run(String... args) throws Exception {
@@ -30,9 +34,20 @@ public class intiData implements CommandLineRunner {
             a1.setResturantDetails("Omer Saad");
 
 
+            DOffer o1 = new DOffer();
+            o1.setOffer("Free Food sunday");
+            o1.setResturant(a1);
+
+            DOffer o2 = new DOffer();
+            o2.setOffer("Discount on fool");
+            o2.setResturant(a1);
+
+            DOffer o3 = new DOffer();
+            o3.setOffer("compution and winner 1000 $");
+            o3.setResturant(a1);
+
+
             FMenu m1 = new FMenu();
-
-
 
                 // menu 1
             m1.setFoodName("fool");
@@ -62,7 +77,9 @@ public class intiData implements CommandLineRunner {
              /*****************************************************/
 
             aresturantRepo.save(a1);
-
+            dOfferRepo.save(o1);
+            dOfferRepo.save(o2);
+            dOfferRepo.save(o3);
 
             fmenuRepo.save(m1);
             fmenuRepo.save(m2);
