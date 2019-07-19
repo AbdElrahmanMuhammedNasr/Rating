@@ -4,6 +4,7 @@ import com.example.demo.HServersInterface.AResturantServise;
 import com.example.demo.Model.AResturant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,5 +18,10 @@ public class AResturantRest {
     @GetMapping(value = {"/allRest"})
     public List<AResturant> getResurant(){
         return aResturantServise.findAllReaturant();
+    }
+
+    @GetMapping(value = {"/oneRest/{id}"})
+    public AResturant getOneResurant(@PathVariable("id") Long id){
+        return aResturantServise.findOneResturant(id);
     }
 }

@@ -8,5 +8,7 @@ public interface AResturantServise {
 
     List<AResturant> findAllReaturant();
 
+    AResturant findOneResturant(Long id);
+
     void deleteById(Long id);
 }

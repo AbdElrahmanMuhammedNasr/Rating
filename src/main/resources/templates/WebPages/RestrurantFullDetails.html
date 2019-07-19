@@ -20,6 +20,9 @@
                     </div>
 
                 </div>
+
+
+
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -42,7 +45,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="re:${AllRest}">
+                <tr th:each="re:${RestOne}">
                     <td th:text="${re.resturantName}"></td>
                     <td th:each="ad:${re.resturentAddress}"
                         th:text="${ad.getCity()+' - '+ad.getStreet()+' - '+ad.getPlace()}"></td>
