@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http;//www.thymeleaf.org">
+<head th:replace="StaticView/header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container formPage">
+    <form th:action="@{/saveRest}" method="post">
+
+        <div class="form-group">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input bg-dark" id="inputGroupFile01">
+                <label class="custom-file-label bg-dark" for="inputGroupFile01">Choose file</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control bg-dark"  placeholder="Resturent Name">
+        </div>
+
+            <div class="container address">
+                <div class="form-group">
+                    <input type="text" class="form-control bg-dark"  placeholder="City">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control bg-dark"  placeholder="Street">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control bg-dark"   placeholder="Near By">
+                </div>
+            </div>
+
+        <div class="form-group">
+            <textarea  class="form-control bg-dark"  placeholder="Tell Us More Details About your Resturent" ></textarea>
+        </div>
+
+
+        <button type="submit" class="btn btn-outline-secondary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

@@ -11,8 +11,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BAddress {
-
-
     private String city;
     private String street;
     private String place;

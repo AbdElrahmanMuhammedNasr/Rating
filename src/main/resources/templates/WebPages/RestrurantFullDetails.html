@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http;//www.thymeleaf.org">
+<head th:replace="StaticView/header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <div class="container restDetail">
+                <img src="">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Option</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="re:${AllRest}">
+                    <td th:text="${re.resturantName}"></td>
+                    <td th:each="ad:${re.resturentAddress}"
+                        th:text="${ad.getCity()+' - '+ad.getStreet()+' - '+ad.getPlace()}"></td>
+                    <td th:text="${re.resturantDetails}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+</body>
+</html>

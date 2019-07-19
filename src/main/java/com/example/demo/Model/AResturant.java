@@ -41,5 +41,4 @@ public class AResturant {
     private List<DOffer> offers;
 
 
-    private boolean is_delete;
 }
