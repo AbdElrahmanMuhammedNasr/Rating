@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http;//www.thymeleaf.org">
+<head th:replace="StaticView/header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div class="container formPage">
+    <form th:action="@{/addOffer}" method="post"  th:object="${offer}">
+
+        <div class="form-group">
+            <textarea  class="form-control bg-dark"  placeholder="Details About Food" th:field="*{offer}"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-outline-secondary">Add</button>
+    </form>
+</div>
+
+
+</body>
+</html>

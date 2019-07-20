@@ -14,7 +14,10 @@
                     <th scope="col">Name</th>
                     <th scope="col">Address</th>
                     <th scope="col">Details</th>
-                    <th scope="col">Option</th>
+                    <th scope="col">View  details</th>
+                    <th scope="col">Add Menu </th>
+                    <th scope="col">Add Offer</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -24,9 +27,13 @@
                         th:text="${ad.getCity()+' - '+ad.getStreet()+' - '+ad.getPlace()}"></td>
                     <td th:text="${re.resturantDetails}"></td>
                     <td><a class="btn btn-primary" th:href="@{/fullRestDetai}" role="button">View</a></td>
+                    <td><a class="btn btn-danger" th:href="@{/addMenu}"   role="button">Add  Menu</a></td>
+                    <td><a class="btn btn-secondary" th:href="@{/addOffer}" role="button">Add Offer</a></td>
 
-<!--                    <td><a class="btn btn-primary" th:href="@{'/fullRestDetai/'+${re.resturantId} }" role="button">View</a></td>
--->
+
+
+                    <!--           <td><a class="btn btn-primary" th:href="@{'/fullRestDetai/'+${re.resturantId}}" role="button">View</a></td>
+           -->
                 </tr>
                 </tbody>
             </table>

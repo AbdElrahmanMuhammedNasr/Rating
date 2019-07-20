@@ -18,6 +18,7 @@ public class AResturantRest {
 
     @GetMapping(value = {"/allRest"})
     public List<AResturant> getResurant(){
+
         return aResturantServise.findAllReaturant();
     }
 

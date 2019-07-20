@@ -7,6 +7,7 @@ import com.example.demo.Model.AResturant;
 import com.example.demo.KReposotiry.AresturantRepo;
 import com.example.demo.Model.BAddress;
 import com.example.demo.Model.DOffer;
+import com.example.demo.Model.FMenu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -71,7 +72,28 @@ public class HomeController {
         model.addAttribute("RestOne",aResturantRest.getOneResurant(id));
         return "WebPages/RestrurantFullDetails";
     }
+/***************************** adding Menu******************************************/
+    @GetMapping(value = {"/addMenu"})
+    public String addMenu(Model model){
+        model.addAttribute("One",aResturantRest.getResurant());
+        model.addAttribute("menu",new FMenu());
 
+        return "WebPages/addMenu";
+    }
 
+ /*   @GetMapping(value = {"/addMenu/{id}"})
+    public String addMenu(@PathVariable("id") Long id ,Model model){
+      // model.addAttribute("RestOne",aResturantRest.getOneResurant(id));
+        model.addAttribute("RestOne",aResturantRest.getResurant());
+        return "WebPages/addMenu";
+    }
+    */
+
+ /****************************** adding offer***************************************/
+ @GetMapping(value = {"/addOffer"})
+ public String addOffer(Model model){
+     model.addAttribute("offer",new DOffer());
+     return "WebPages/addOffer";
+ }
 }
 
