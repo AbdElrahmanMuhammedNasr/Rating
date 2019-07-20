@@ -5,16 +5,19 @@ import com.example.demo.HServersInterface.AResturantServise;
 import com.example.demo.HServersInterface.DofferServise;
 import com.example.demo.Model.AResturant;
 import com.example.demo.KReposotiry.AresturantRepo;
+import com.example.demo.Model.BAddress;
 import com.example.demo.Model.DOffer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServlet;
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,13 +31,25 @@ public class HomeController {
 
 
     @GetMapping(value = {"/"})
-    public String getformPage(){
+    public String getformPage(Model model){
+        model.addAttribute("Returant" , new AResturant());
+        model.addAttribute("Address" , new BAddress());
+
         return "WebPages/formPage";
     }
 
     @PostMapping(value = {"/saveRest"})
-    public String saveRest(){
+    public String saveRest(@Valid AResturant aResturant , @Valid BAddress bAddress , Model model , BindingResult bindingResult){
+        model.addAttribute("Returant" , new AResturant());
+        model.addAttribute("Address" , new BAddress());
+        if(bindingResult.hasErrors()){
+            return "WebPages/formPage";
 
+        }
+        else {
+            aResturant.setResturentAddress(bAddress);
+            aResturantRest.saveData(aResturant);
+        }
         return "WebPages/formPage";
     }
 
@@ -43,6 +58,12 @@ public class HomeController {
     public String getResurant(Model model){
         model.addAttribute("AllRest",aResturantRest.getResurant());
         return "WebPages/Restrurant";
+    }
+
+    @GetMapping(value = {"/fullRestDetai"})
+    public String getOneRestTEst(Model model){
+        model.addAttribute("RestOne",aResturantRest.getResurant());
+        return "WebPages/RestrurantFullDetails";
     }
 
     @GetMapping(value = {"/fullRestDetai/{id}"})

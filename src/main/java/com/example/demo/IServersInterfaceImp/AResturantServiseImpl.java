@@ -27,6 +27,11 @@ public class AResturantServiseImpl implements AResturantServise {
     }
 
     @Override
+    public AResturant saveOneRestureat(AResturant aResturant) {
+        return aresturantRepo.save(aResturant);
+    }
+
+    @Override
     public void deleteById(Long id) {
         aresturantRepo.deleteById(id);
     }

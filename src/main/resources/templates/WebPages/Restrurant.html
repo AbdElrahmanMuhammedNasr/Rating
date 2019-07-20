@@ -3,6 +3,7 @@
 <head th:replace="StaticView/header">
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
         <div class="container RestForm">
@@ -22,7 +23,10 @@
                     <td th:each="ad:${re.resturentAddress}"
                         th:text="${ad.getCity()+' - '+ad.getStreet()+' - '+ad.getPlace()}"></td>
                     <td th:text="${re.resturantDetails}"></td>
-                    <td> <button class="btn btn-outline-primary" onclick="location.href='/fullRestDetai/'+${re.id}''">Show </button> </td>
+                    <td><a class="btn btn-primary" th:href="@{/fullRestDetai}" role="button">View</a></td>
+
+<!--                    <td><a class="btn btn-primary" th:href="@{'/fullRestDetai/'+${re.resturantId} }" role="button">View</a></td>
+-->
                 </tr>
                 </tbody>
             </table>

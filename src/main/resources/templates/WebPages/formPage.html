@@ -6,33 +6,37 @@
 </head>
 <body>
 <div class="container formPage">
-    <form th:action="@{/saveRest}" method="post">
+    <form th:action="@{/saveRest}" method="post"  th:object="${Returant}">
 
         <div class="form-group">
             <div class="custom-file">
-                <input type="file" class="custom-file-input bg-dark" id="inputGroupFile01">
+                <input type="file" class="custom-file-input bg-dark" id="inputGroupFile01" th:field="*{resturantImage}">
                 <label class="custom-file-label bg-dark" for="inputGroupFile01">Choose file</label>
             </div>
         </div>
 
         <div class="form-group">
-            <input type="text" class="form-control bg-dark"  placeholder="Resturent Name">
+            <input type="text" class="form-control bg-dark"  placeholder="Resturent Name" th:field="*{resturantName}">
         </div>
+
+        <div th:object="${Address}"> <!-- another object because it is embeded calss -->
 
             <div class="container address">
                 <div class="form-group">
-                    <input type="text" class="form-control bg-dark"  placeholder="City">
+                    <input type="text" class="form-control bg-dark"  placeholder="City" th:field="*{city}">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control bg-dark"  placeholder="Street">
+                    <input type="text" class="form-control bg-dark"  placeholder="Street" th:field="*{street}">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control bg-dark"   placeholder="Near By">
+                    <input type="text" class="form-control bg-dark"   placeholder="Near By" th:field="*{place}">
                 </div>
             </div>
+        </div>
+
 
         <div class="form-group">
-            <textarea  class="form-control bg-dark"  placeholder="Tell Us More Details About your Resturent" ></textarea>
+            <textarea  class="form-control bg-dark"  placeholder="Tell Us More Details About your Resturent" th:field="*{resturantDetails}"></textarea>
         </div>
 
 
