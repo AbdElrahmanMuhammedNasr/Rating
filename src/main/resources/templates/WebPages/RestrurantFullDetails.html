@@ -45,10 +45,6 @@
                     <th scope="col">Name</th>
                     <th scope="col">Address</th>
                     <th scope="col">Details</th>
-                    <th scope="col">Offer</th>
-                    <th scope="col">Menu</th>
-
-
                 </tr>
                 </thead>
                 <tbody>
@@ -72,14 +68,11 @@
                 </tbody>
             </table>
 
-            <!--      offer and menu table        -->
+            <!--      offer         -->
             <table class="table" border="1">
                 <thead>
                 <tr>
                     <th scope="col">Offer</th>
-                    <th scope="col">Menu</th>
-
-
                 </tr>
                 </thead>
                 <tbody>
@@ -89,10 +82,28 @@
                     <td th:each="of:${re.offers}"
                         th:text="${of.getOffer() }"></td>
 
-                    <!-- food menu-->
-                    <td th:each="me:${re.restaurantFmenu}"
-                        th:text="${me.getFoodName()+' '+me.getFoodPrice()+' '+me.getFoodDetails() }"></td>
+                </tr>
+                </tbody>
+            </table>
+            <!--       menu table    and rates     -->
+            <table class="table" border="1">
+                <thead>
+                <tr>
+                    <th scope="col">Menu</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="re:${RestOneDet}">
+                        <!-- food menu-->
+                        <td th:each="me:${re.restaurantFmenu}"
+                            th:text="${me.getFoodName()+' '+me.getFoodPrice()+' '+me.getFoodDetails()  }">
 
+                        </td>
+<!--
+                     <!--+' '+me.rates.getRateNumber()
+                    <td th:each="rat:${re.restaurantFmenu.rates}"
+                        th:text="${rat.getRateNumber}"></td>
+-->
                 </tr>
                 </tbody>
             </table>

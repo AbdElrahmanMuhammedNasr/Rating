@@ -31,6 +31,8 @@ public class intiData implements CommandLineRunner {
             a1.setResturantDetails("Omer Saad");
 
 
+
+
             DOffer o1 = new DOffer();
             o1.setOffer("Free Food sunday");
             o1.setResturant(a1);
@@ -46,10 +48,9 @@ public class intiData implements CommandLineRunner {
 
             FMenu m1 = new FMenu();
 
+
                 // menu 1
             m1.setFoodName("fool");
-         //   m1.getFoodName();
-          //  m1.getFoodPrice();
             m1.setFoodPrice(new Long(50l));
             m1.setFoodDetails("some beans and oli and some staff");
             m1.setResturant(a1);
