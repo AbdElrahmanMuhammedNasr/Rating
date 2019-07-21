@@ -5,6 +5,7 @@ import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -33,12 +34,12 @@ public class AResturant {
 
     @OneToMany(mappedBy = "resturant" ,cascade = CascadeType.ALL /*,fetch = FetchType.EAGER*/)
     @JsonIgnore
-    private List<FMenu>  restaurantFmenu;
+    private List<FMenu>  restaurantFmenu  = new ArrayList<FMenu>();
 
 
     @OneToMany(mappedBy = "resturant" ,cascade = CascadeType.ALL /*, fetch = FetchType.EAGER*/)
     @JsonIgnore
-    private List<DOffer> offers;
+    private List<DOffer> offers = new ArrayList<DOffer>();
 
 
 }

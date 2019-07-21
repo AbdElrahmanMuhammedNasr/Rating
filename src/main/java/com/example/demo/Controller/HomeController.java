@@ -63,13 +63,13 @@ public class HomeController {
 
     @GetMapping(value = {"/fullRestDetai"})
     public String getOneRestTEst(Model model){
-        model.addAttribute("RestOne",aResturantRest.getResurant());
+        model.addAttribute("RestOneDet",aResturantRest.getResurant());
         return "WebPages/RestrurantFullDetails";
     }
 
-    @GetMapping(value = {"/fullRestDetai/{id}"})
+    @GetMapping(value ="/fullRestDetai/{id}")
     public String getOneRest(@PathVariable("id") Long id ,Model model){
-        model.addAttribute("RestOne",aResturantRest.getOneResurant(id));
+        model.addAttribute("RestOneDet",aResturantRest.getOneResurant(id));
         return "WebPages/RestrurantFullDetails";
     }
 /***************************** adding Menu******************************************/

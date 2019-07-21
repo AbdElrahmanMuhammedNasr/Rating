@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{css/style.css}">
+
 </head>
 <body>
         <div class="container restDetail">
@@ -36,20 +39,60 @@
 
 
     <!-- ***************************************************************************** -->
-            <table class="table">
+            <table class="table" border="1">
                 <thead>
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Address</th>
                     <th scope="col">Details</th>
+                    <th scope="col">Offer</th>
+                    <th scope="col">Menu</th>
+
+
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="re:${RestOne}">
+                <tr th:each="re:${RestOneDet}">
                     <td th:text="${re.resturantName}"></td>
+
                     <td th:each="ad:${re.resturentAddress}"
                         th:text="${ad.getCity()+' - '+ad.getStreet()+' - '+ad.getPlace()}"></td>
                     <td th:text="${re.resturantDetails}"></td>
+        <!--
+                    <!-- Offers
+                    <td th:each="of:${re.offers}"
+                        th:text="${of.getOffer() }"></td>
+
+                    <!-- food menu
+                    <td th:each="me:${re.restaurantFmenu}"
+                        th:text="${me.getFoodName()+' '+me.getFoodPrice()+' '+me.getFoodDetails() }"></td>
+        -->
+
+                </tr>
+                </tbody>
+            </table>
+
+            <!--      offer and menu table        -->
+            <table class="table" border="1">
+                <thead>
+                <tr>
+                    <th scope="col">Offer</th>
+                    <th scope="col">Menu</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="re:${RestOneDet}">
+
+                    <!-- Offers -->
+                    <td th:each="of:${re.offers}"
+                        th:text="${of.getOffer() }"></td>
+
+                    <!-- food menu-->
+                    <td th:each="me:${re.restaurantFmenu}"
+                        th:text="${me.getFoodName()+' '+me.getFoodPrice()+' '+me.getFoodDetails() }"></td>
+
                 </tr>
                 </tbody>
             </table>

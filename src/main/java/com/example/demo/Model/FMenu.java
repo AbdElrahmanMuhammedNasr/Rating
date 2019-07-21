@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,7 +26,7 @@ public class FMenu {
 
     @OneToMany(mappedBy = "fMenu" ,cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<KRate> rates;
+    private List<KRate> rates = new ArrayList<KRate>();
 
     @ManyToOne
     @JsonIgnore

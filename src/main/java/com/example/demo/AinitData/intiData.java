@@ -48,6 +48,8 @@ public class intiData implements CommandLineRunner {
 
                 // menu 1
             m1.setFoodName("fool");
+         //   m1.getFoodName();
+          //  m1.getFoodPrice();
             m1.setFoodPrice(new Long(50l));
             m1.setFoodDetails("some beans and oli and some staff");
             m1.setResturant(a1);
