@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface FMenuServise {
     List<FMenu> findAllMenu();
+    void SaveMenu(FMenu menu);
 
 }

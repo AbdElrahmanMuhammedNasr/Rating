@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.ControllerRest.AResturantRest;
+import com.example.demo.ControllerRest.FMenuRest;
 import com.example.demo.HServersInterface.AResturantServise;
 import com.example.demo.HServersInterface.DofferServise;
 import com.example.demo.Model.AResturant;
@@ -28,6 +29,9 @@ public class HomeController {
     private AResturantRest aResturantRest;
 
     @Autowired
+    private FMenuRest  fMenuRest;
+
+    @Autowired
     private DofferServise dofferServise;
 
 
@@ -41,6 +45,8 @@ public class HomeController {
 
     @PostMapping(value = {"/saveRest"})
     public String saveRest(@Valid AResturant aResturant , @Valid BAddress bAddress , Model model , BindingResult bindingResult){
+
+
         model.addAttribute("Returant" , new AResturant());
         model.addAttribute("Address" , new BAddress());
         if(bindingResult.hasErrors()){
@@ -73,27 +79,51 @@ public class HomeController {
         return "WebPages/RestrurantFullDetails";
     }
 /***************************** adding Menu******************************************/
-    @GetMapping(value = {"/addMenu"})
-    public String addMenu(Model model){
-        model.addAttribute("One",aResturantRest.getResurant());
-        model.addAttribute("menu",new FMenu());
-
-        return "WebPages/addMenu";
-    }
-
- /*   @GetMapping(value = {"/addMenu/{id}"})
+    @GetMapping(value = {"/addMenu/{id}"})
     public String addMenu(@PathVariable("id") Long id ,Model model){
-      // model.addAttribute("RestOne",aResturantRest.getOneResurant(id));
-        model.addAttribute("RestOne",aResturantRest.getResurant());
+        model.addAttribute("One",aResturantRest.getOneResurant(id));
+        model.addAttribute("menu",new FMenu());
         return "WebPages/addMenu";
     }
-    */
+
+   @PostMapping(value = {"/addMenu/{resId}/save"})
+    public String saveMenu(@Valid FMenu menu,@PathVariable("resId") Long id,Model model , BindingResult bindingResult){
+            model.addAttribute("One",aResturantRest.getOneResurant(id));
+            model.addAttribute("menu",new FMenu());
+
+        if (bindingResult.hasErrors()){
+            return "WebPages/addMenu";
+        }
+        AResturant r = aResturantRest.getOneResurant(id);
+        menu.setResturant(r);
+        aResturantRest.saveData(r);
+        fMenuRest.saveData(menu);
+        return "WebPages/addMenu";
+    }
+
 
  /****************************** adding offer***************************************/
- @GetMapping(value = {"/addOffer"})
- public String addOffer(Model model){
-     model.addAttribute("offer",new DOffer());
-     return "WebPages/addOffer";
- }
+     @GetMapping(value = {"/addOffer/{id}"})
+     public String addOffer(@PathVariable("id") Long id ,Model model){
+         model.addAttribute("One",aResturantRest.getOneResurant(id));
+         model.addAttribute("offe",new DOffer());
+         return "WebPages/addOffer";
+     }
+
+     @PostMapping(value = {"/addOffer/{resId}/save"})
+     public String saveOffer(@Valid DOffer offer ,@PathVariable("resId") Long id,Model model , BindingResult bindingResult){
+         model.addAttribute("One",aResturantRest.getOneResurant(id));
+         model.addAttribute("offe",new DOffer());
+
+         if (bindingResult.hasErrors()){
+             return "WebPages/addOffer";
+         }
+
+         AResturant r = aResturantRest.getOneResurant(id);
+         offer.setResturant(r);
+         aResturantRest.saveData(r);
+         dofferServise.savaOfferData(offer);
+         return "WebPages/addOffer";
+     }
 }
 

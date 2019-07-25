@@ -8,7 +8,18 @@
 <body>
 
 <div class="container formPage">
-    <form th:action="@{/addOffer}" method="post"  th:object="${offer}">
+    <label th:text="${One.resturantName}">Resturant Name</label>
+
+    <form th:action="@{'/addOffer/'+${One.resturantId}+'/save'}" method="post"  th:object="${offe}">
+
+        <div class="form-group">
+            <input  type="date" class="form-control bg-dark"  placeholder="Details About Food" th:field="*{StartOffer}"></input>
+        </div>
+
+        <div class="form-group">
+            <input  type="date" class="form-control bg-dark"  placeholder="Details About Food" th:field="*{EndOffer}"></input>
+        </div>
+
 
         <div class="form-group">
             <textarea  class="form-control bg-dark"  placeholder="Details About Food" th:field="*{offer}"></textarea>

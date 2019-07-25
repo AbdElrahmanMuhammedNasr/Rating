@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container formPage">
-    <form th:action="@{/saveRest}" method="post"  th:object="${Returant}">
+    <form th:action="@{/saveRest}" method="post"  th:object="${Returant}" enctype="multipart/form-data">
 
         <div class="form-group">
             <div class="custom-file">

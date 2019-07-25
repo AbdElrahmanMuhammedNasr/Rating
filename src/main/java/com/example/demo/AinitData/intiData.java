@@ -9,6 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Component
 public class intiData implements CommandLineRunner {
     @Autowired
@@ -35,15 +41,21 @@ public class intiData implements CommandLineRunner {
 
             DOffer o1 = new DOffer();
             o1.setOffer("Free Food sunday");
-            o1.setResturant(a1);
+            o1.setStartOffer("12-12-12");
+            o1.setEndOffer("12-12-12");
+             o1.setResturant(a1);
 
             DOffer o2 = new DOffer();
             o2.setOffer("Discount on fool");
-            o2.setResturant(a1);
+            o2.setStartOffer("12-12-12");
+            o2.setEndOffer("12-12-12");
+              o2.setResturant(a1);
 
             DOffer o3 = new DOffer();
             o3.setOffer("compution and winner 1000 $");
-            o3.setResturant(a1);
+            o3.setStartOffer("12-12-12");
+            o3.setEndOffer("12-12-12");
+              o3.setResturant(a1);
 
 
             FMenu m1 = new FMenu();

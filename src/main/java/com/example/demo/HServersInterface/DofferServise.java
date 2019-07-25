@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface DofferServise {
     List<DOffer> findAllOffer();
+    void savaOfferData(DOffer offer);
 
 }

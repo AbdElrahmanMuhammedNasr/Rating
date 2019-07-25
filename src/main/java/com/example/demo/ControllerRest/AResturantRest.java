@@ -2,7 +2,6 @@ package com.example.demo.ControllerRest;
 
 import com.example.demo.HServersInterface.AResturantServise;
 import com.example.demo.Model.AResturant;
-import com.example.demo.Model.BAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +30,6 @@ public class AResturantRest {
     public void saveData(AResturant resturant){
 
          aResturantServise.saveOneRestureat(resturant);
-
 
     }
 

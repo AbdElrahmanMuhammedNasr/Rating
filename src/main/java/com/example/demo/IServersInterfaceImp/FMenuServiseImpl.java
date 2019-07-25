@@ -16,4 +16,11 @@ public class FMenuServiseImpl implements FMenuServise {
     public List<FMenu> findAllMenu() {
         return fmenuRepo.findAll();
     }
+
+    @Override
+    public void SaveMenu(FMenu menu) {
+        fmenuRepo.save(menu);
+    }
+
+
 }

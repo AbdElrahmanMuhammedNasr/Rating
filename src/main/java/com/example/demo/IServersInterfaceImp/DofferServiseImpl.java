@@ -17,4 +17,9 @@ public class DofferServiseImpl implements DofferServise {
     public List<DOffer> findAllOffer() {
         return dOfferRepo.findAll();
     }
+
+    @Override
+    public void savaOfferData(DOffer offer) {
+        dOfferRepo.save(offer);
+    }
 }

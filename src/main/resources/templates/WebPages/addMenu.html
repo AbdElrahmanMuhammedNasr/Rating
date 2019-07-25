@@ -10,7 +10,10 @@
 
 
     <div class="container formPage">
-        <form th:action="@{/addMenu}" method="post"  th:object="${menu}">
+
+        <label th:text="${One.resturantName}">Resturant Name</label>
+
+        <form th:action="@{'/addMenu/'+${One.resturantId}+'/save'}" method="post"  th:object="${menu}">
 
             <div class="form-group">
                 <input type="text" class="form-control bg-dark"  placeholder="Food Name" th:field="*{foodName}">

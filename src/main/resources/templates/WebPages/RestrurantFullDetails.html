@@ -11,32 +11,7 @@
 <body>
         <div class="container restDetail">
 
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="..." alt="First slide">
-                    </div>
-
-                </div>
-
-
-
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-
+            <img class="d-block w-100" src="..." alt="First slide">
 
     <!-- ***************************************************************************** -->
             <table class="table" border="1">
@@ -73,6 +48,9 @@
                 <thead>
                 <tr>
                     <th scope="col">Offer</th>
+                    <th scope="col">Start Time</th>
+                    <th scope="col">End Time</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -80,9 +58,22 @@
 
                     <!-- Offers -->
 
+
                     <td>
                         <ul th:each="of:${re.offers}"  class="list-group" >
-                            <li  class="list-group-item bg-dark" th:text="${of.getOffer() }" ></li>
+                            <li  class="list-group-item bg-dark" th:text="${of.getOffer()}" ></li>
+                        </ul>
+                    </td>
+
+                    <td>
+                        <ul th:each="of:${re.offers}"  class="list-group" >
+                            <li  class="list-group-item bg-dark" th:text="${of.getStartOffer()}" ></li>
+                        </ul>
+                    </td>
+
+                    <td>
+                        <ul th:each="of:${re.offers}"  class="list-group" >
+                            <li  class="list-group-item bg-dark" th:text="${of.getEndOffer()}" ></li>
                         </ul>
                     </td>
                     <!--
@@ -111,7 +102,7 @@
 
                     <td>
                         <ul th:each="me:${re.restaurantFmenu}" class="list-group">
-                        <li  class="list-group-item bg-dark"  th:text="${me.getFoodName() }"></li>
+                          <li  class="list-group-item bg-dark"  th:text="${me.getFoodName() }"></li>
                         </ul>
                     </td>
                     <td>
