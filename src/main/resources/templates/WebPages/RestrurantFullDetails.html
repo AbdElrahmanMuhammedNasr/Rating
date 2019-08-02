@@ -14,7 +14,7 @@
             <img class="d-block w-100" src="..." alt="First slide">
 
     <!-- ***************************************************************************** -->
-            <table class="table" border="1">
+            <table class="table" border ="1">
                 <thead>
                 <tr>
                     <th scope="col">Name</th>
@@ -29,105 +29,163 @@
                     <td th:each="ad:${re.resturentAddress}"
                         th:text="${ad.getCity()+' - '+ad.getStreet()+' - '+ad.getPlace()}"></td>
                     <td th:text="${re.resturantDetails}"></td>
-        <!--
-                    <!-- Offers
-                    <td th:each="of:${re.offers}"
-                        th:text="${of.getOffer() }"></td>
 
-                    <!-- food menu
-                    <td th:each="me:${re.restaurantFmenu}"
-                        th:text="${me.getFoodName()+' '+me.getFoodPrice()+' '+me.getFoodDetails() }"></td>
-        -->
 
                 </tr>
                 </tbody>
             </table>
-
-            <!--      offer         -->
-            <table class="table" border="1">
-                <thead>
-                <tr>
-                    <th scope="col">Offer</th>
-                    <th scope="col">Start Time</th>
-                    <th scope="col">End Time</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="re:${RestOneDet}">
-
-                    <!-- Offers -->
-
-
-                    <td>
-                        <ul th:each="of:${re.offers}"  class="list-group" >
-                            <li  class="list-group-item bg-dark" th:text="${of.getOffer()}" ></li>
-                        </ul>
-                    </td>
-
-                    <td>
-                        <ul th:each="of:${re.offers}"  class="list-group" >
-                            <li  class="list-group-item bg-dark" th:text="${of.getStartOffer()}" ></li>
-                        </ul>
-                    </td>
-
-                    <td>
-                        <ul th:each="of:${re.offers}"  class="list-group" >
-                            <li  class="list-group-item bg-dark" th:text="${of.getEndOffer()}" ></li>
-                        </ul>
-                    </td>
-                    <!--
-                    <td th:each="of:${re.offers}"
-                        th:text="${of.getOffer() }"></td>
-                    -->
-                </tr>
-                </tbody>
-            </table>
-            <!--       menu table    and rates     -->
-
-
-            <table class="table"  border="1">
-                <thead>
-                <th>Menu</th>
-
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Details</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="re:${RestOneDet}">
-                        <!-- food menu-->
-
-                    <td>
-                        <ul th:each="me:${re.restaurantFmenu}" class="list-group">
-                          <li  class="list-group-item bg-dark"  th:text="${me.getFoodName() }"></li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul th:each="me:${re.restaurantFmenu}" class="list-group">
-                            <li  class="list-group-item bg-dark"  th:text="${me.getFoodPrice()  }"></li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul th:each="me:${re.restaurantFmenu}" class="list-group">
-                            <li  class="list-group-item bg-dark"  th:text="${me.getFoodDetails()  }"></li>
-                      </ul>
-                    </td>
-
-
-
-
-<!--
-                     <!--+' '+me.rates.getRateNumber()
-                    <td th:each="rat:${re.restaurantFmenu.rates}"
-                        th:text="${rat.getRateNumber}"></td>
--->
-                </tr>
-                </tbody>
-            </table>
-
         </div>
+
+        <ul class="list-group bg-dark" th:each="re:${RestOneDet}">
+
+            <div class="row">
+                <div class="col-xl-6">
+                    <li class="list-group-item" th:text="${re.resturantName}"></li>
+                </div>
+                <div class="col-xl-6">
+                    <li class="list-group-item" th:text="${re.getResturantDetails()}"></li>
+                </div>
+            </div>
+
+
+        </ul>
+
+
+
+
+
+        <div class="restDetail ResMargi">
+                        <!--      offer         -->
+                        <table class="table" border ="1" >
+                            <thead>
+                            <tr>
+                                <th scope="col">Offer</th>
+                                <th scope="col">Start Time</th>
+                                <th scope="col">End Time</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="re:${RestOneDet}">
+
+                                <!-- Offers -->
+
+
+                                <td>
+                                    <ul th:each="of:${re.offers}"  class="list-group" >
+                                        <div class="row">
+                                            <div class="col-xl-8">
+                                                <li  class="list-group-item bg-dark" th:text="${of.getOffer()}" ></li>
+                                            </div>
+
+                                            <div class="col-xl-2">
+                                                <a class="btn btn-outline-success" th:href="@{'/updateOffer/'+${of.getOfferId()} +'/offer' }">Update</a>
+                                            </div>
+
+                                            <div class="col-xl-2">
+                                                <a class="btn btn-outline-danger" th:href="@{'/deleteOffer/'+${of.getOfferId()} +'/offer'}">Delete</a>
+                                            </div>
+
+                                        </div>
+                                    </ul>
+
+                                </td>
+
+                                <td>
+                                    <ul th:each="of:${re.offers}"  class="list-group" >
+                                        <li  class="list-group-item bg-dark" th:text="${of.getStartOffer()}" ></li>
+                                    </ul>
+                                </td>
+
+                                <td>
+                                    <ul th:each="of:${re.offers}"  class="list-group" >
+                                        <li  class="list-group-item bg-dark" th:text="${of.getEndOffer()}" ></li>
+                                    </ul>
+                                </td>
+
+
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                        <!--       menu table    and rates     -->
+
+
+
+                        <table class="table" border ="1"  >
+                            <thead>
+                            <p>Menu</p>
+
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Details</th>
+                                <th scope="col">Rate</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="re:${RestOneDet}">
+                                <!-- food menu-->
+
+                                <td>
+                                    <ul th:each="me:${re.restaurantFmenu}" class="list-group">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <li  class="list-group-item bg-dark"  th:text="${me.getFoodName() }"></li>
+                                            </div>
+
+                                            <div class="col-xl-3">
+                                                <a class="btn btn-outline-success" th:href="@{'/updateMenu/'+${me.getFoodId()} +'/offer' }">Update</a>
+                                            </div>
+
+                                            <div class="col-xl-3">
+                                                <a class="btn btn-outline-danger" th:href="@{'/updateMenu/'+${me.getFoodId()} +'/offer' }">Delete</a>
+                                            </div>
+
+                                        </div>
+
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul th:each="me:${re.restaurantFmenu}" class="list-group">
+                                        <li  class="list-group-item bg-dark"  th:text="${me.getFoodPrice()} +' '+ Pound"></li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul th:each="me:${re.restaurantFmenu}" class="list-group">
+                                                <li  class="list-group-item bg-dark"  th:text="${me.getFoodDetails()  }"></li>
+                                    </ul>
+                                </td>
+
+                                <td>
+                                    <ul th:each="me:${re.restaurantFmenu}" class="list-group">
+                                        <ul th:each="ra:${me.rates}">
+                                            <li>Rate Number</li>
+                                            <li><a class="btn btn-success" th:href="@{/ }">rates</a></li>
+                                        </ul>
+                                    </ul>
+                                </td>
+
+
+
+
+
+                                <!--
+                                                     <!--+' '+me.rates.getRateNumber()
+                                                    <td th:each="rat:${re.restaurantFmenu.rates}"
+                                                        th:text="${rat.getRateNumber}"></td>
+                                -->
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+            </div>
+
+
+
+
 </body>
 </html>

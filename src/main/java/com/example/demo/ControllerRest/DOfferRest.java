@@ -4,6 +4,7 @@ import com.example.demo.HServersInterface.DofferServise;
 import com.example.demo.Model.DOffer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,6 +15,10 @@ public class DOfferRest {
     @GetMapping(value = {"/saveOfferData"})
     public void saveData(DOffer offer){
         dofferServise.savaOfferData(offer);
+    }
 
+    @GetMapping(value = {"/deleteOffer/{id}"})
+    public  void deleteOffer(@PathVariable("id") Long id){
+            dofferServise.deleteOfferByid(id);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.ControllerRest.AResturantRest;
+import com.example.demo.ControllerRest.DOfferRest;
 import com.example.demo.ControllerRest.FMenuRest;
 import com.example.demo.HServersInterface.AResturantServise;
 import com.example.demo.HServersInterface.DofferServise;
@@ -32,7 +33,7 @@ public class HomeController {
     private FMenuRest  fMenuRest;
 
     @Autowired
-    private DofferServise dofferServise;
+    private DOfferRest dOfferRest;
 
 
     @GetMapping(value = {"/"})
@@ -122,8 +123,27 @@ public class HomeController {
          AResturant r = aResturantRest.getOneResurant(id);
          offer.setResturant(r);
          aResturantRest.saveData(r);
-         dofferServise.savaOfferData(offer);
+         dOfferRest.saveData(offer);
          return "WebPages/addOffer";
      }
+
+     /*************************** deletet offer ************************************/
+     @GetMapping(value = {"/deleteOffer/{id}/offer"})
+    public  String deleteOffer(@PathVariable("id") Long id){
+         dOfferRest.deleteOffer(id);
+        return "redirect:/fullRestDetai"; //@getMapping value
+
+     }
 }
+
+
+
+
+
+
+
+
+
+
+
 

@@ -22,4 +22,9 @@ public class DofferServiseImpl implements DofferServise {
     public void savaOfferData(DOffer offer) {
         dOfferRepo.save(offer);
     }
+
+    @Override
+    public void deleteOfferByid(Long id) {
+        dOfferRepo.deleteById(id);
+    }
 }
